@@ -31,7 +31,7 @@ def bissecao(funcao, a, b, precisao, n):
         print("O método de bissecção falhou.")
         return
     
-    if abs(b - a) < precisao:  # Verifica se já está dentro da precisão
+    if abs(b - a) < precisao:  
         raiz = (a + b) / 2  # Escolhe qualquer ponto no intervalo
         print(f"A raiz é: {raiz}")
         print(f"Número de iterações: {k}")  
@@ -101,29 +101,29 @@ def secante(funcao, x0, x1, precisao, max_iter):
     k = 0  
 
     while True:
-        f0 = funcao(x0)  # Avalia a função em x0
-        f1 = funcao(x1)  # Avalia a função em x1
+        f0 = funcao(x0)  
+        f1 = funcao(x1)  
 
-        # Passo 2: Verificar se a primeira aproximação é suficiente
+        # Passo 2
         if abs(f0) < precisao:
             print(f"A raiz é: {x0}")
             print(f"Número de iterações: {k}")
             return x0
 
-        # Passo 3: Verificar se a segunda aproximação é suficiente
+        # Passo 3
         if abs(f1) < precisao or abs(x1 - x0) < precisao:
             print(f"A raiz é: {x1}")
             print(f"Número de iterações: {k}")
             return x1
 
-        # Passo 5: Calcular a nova aproximação
-        if f1 - f0 == 0:  # Evitar divisão por zero
+        # Passo 5
+        if f1 - f0 == 0:  
             print("Divisão por zero, não pode continuar.")
             return None
         
         x2 = x1 - f1 * (x1 - x0) / (f1 - f0)  
 
-        # Passo 6: Verificar se a nova aproximação é suficiente
+        # Passo 6
         f2 = funcao(x2)
         if abs(f2) < precisao or abs(x2 - x1) < precisao or k >= max_iter:
             print(f"A raiz é: {x2}")
@@ -131,7 +131,7 @@ def secante(funcao, x0, x1, precisao, max_iter):
             return x2
 
         # Atualizar os pontos para a próxima iteração
-        x0, x1 = x1, x2  # Atualiza x0 e x1 para a próxima iteração
+        x0, x1 = x1, x2  
         k += 1  
 
 def mil(funcao, phi, x0, precisao, it):
@@ -198,7 +198,7 @@ def main():
             x0 = float(input("Digite o valor inicial (x0): "))
             x1 = float(input("Digite o segundo valor inicial (x1): "))
             precisao = float(input("Digite a precisão (δ): "))
-            max_iter = int(input("Digite o número máximo de iterações: "))  # Solicita o número máximo de iterações
+            max_iter = int(input("Digite o número máximo de iterações: "))  
             secante(funcao, x0, x1, precisao, max_iter)
         
         elif escolha == '5':
