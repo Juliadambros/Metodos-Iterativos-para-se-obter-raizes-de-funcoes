@@ -47,7 +47,7 @@ def bissecao(funcao, a, b, precisao, n):
         else:
             a = meio
 
-    raiz = (a + b) / 2  # Calcula a raiz após sair do loop
+    raiz = (a + b) / 2  
     print(f"Raiz aproximada: {raiz} após {k} iterações")
 
 def regula_falsi(funcao, a, b, n, precisao):
@@ -139,7 +139,7 @@ def mil(funcao, phi, x0, precisao, it):
     while k < it:
         x1 = phi(x0)
 
-        if abs(funcao(x1)) < precisao:  # Critério de parada ajustado
+        if abs(funcao(x1)) < precisao:  # Critério de parada 
             print(f"A raiz é: {x1}")
             print(f"Iterações realizadas: {k + 1}")  
             return x1
